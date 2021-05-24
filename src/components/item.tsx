@@ -26,9 +26,16 @@ const Item: React.FC<Props> = (props) => {
             <td>{props.item.category}</td>
             <td>{props.item.price}</td>
             <td>{props.item.in_stock}</td>
-            <td><button onClick={() => alert('Yet  to be implemented. Try it yourself')}>View Detail</button></td>
-            <td><button onClick={onEdit}>Edit</button></td>
-            <td><button onClick={onDelete}>Delete</button></td>
+            <td><button className="button is-small is-info is-outlined" onClick={() => alert('Yet  to be implemented. Try it yourself')}>View Detail</button></td>
+            <td><button className="button is-small is-info is-outlined" onClick={onEdit}>Edit</button></td>
+            <td>
+                <button  className="button is-small is-danger is-outlined is-rounded" onClick={onDelete}>
+                    <span>Delete</span>
+                    <span className="icon is-small">
+                        <i className="fas fa-times"></i>
+                    </span>
+                </button>
+            </td>
         </tr>
     );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Form } from 'react-bulma-components';
 import { ItemType } from '../TypeDefinitions'
 
 //create the type for the anticipated props to be passed from parent component
@@ -45,39 +46,65 @@ const AddItem: React.FC<Props> = (props) => {
 
     return (
         <div className="AddItem">
-            <form onSubmit={onSubmit}>
-                <fieldset>
-                    <legend>Add Item:</legend>
-                        <ul className="form-wrapper">
-                            <li className="form-row">
-                                <label htmlFor='category'>Category</label>
-                                <select id="category" name="category" value={item.category} onChange={onChange}>
-                                    <option value="Unclassified">Unclassified</option>
-                                    <option value="Food">Food</option>
-                                    <option value="Drink">Drink</option>
-                                    <option value="Clothing">Clothing</option>
-                                    <option value="Electronics">Electronics</option>
-                                </select>
-                            </li>
-                            <li className="form-row">
-                                <label htmlFor='name'>Name</label>
-                                <input type='text' name='name' id='name' placeholder="name of item ..."
-                                    value={item.name} onChange={onChange} required/>
-                            </li>
-                            <li className="form-row">
-                                <label htmlFor='price'>Price</label>
-                                <input type='number' name='price' id='price' placeholder="price of item in
-                                    naira..." value={item.price} onChange={onChange} required/>
-                            </li>
-                            <li className="form-row">
-                                <label htmlFor='in_stock'>In Stock</label>
-                                <input type='number' name='in_stock' id='in_stock' placeholder="how many in
-                                    stock" value={item.in_stock} onChange={onChange} required/>
-                            </li>
-                        </ul>
-                        <input type='submit' value='Submit' onClick={onSubmit}/><input type='button' value='Cancel' onClick={onCancel}/>
-                </fieldset>
-            </form>
+            <div className="field">
+                <form onSubmit={onSubmit}>
+                    <fieldset>
+                    <div className="box">
+                        <h6 className="title is-6 has-text-centered">Add Item:</h6>
+                            <div className="field">
+                                <label className="label">Category</label>
+                                <div className="control">
+                                    <div className="select">
+                                        <select id="category" name="category" value={item.category} onChange={onChange}>
+                                            <option selected={item.category === "Unclassified" ? true : false} value="Unclassified">Unclassified</option>
+                                            <option selected={item.category === "Food" ? true : false} value="Food">Food</option>
+                                            <option selected={item.category === "Drink" ? true : false} value="Drink">Drink</option>
+                                            <option selected={item.category === "Clothing" ? true : false} value="Clothing">Clothing</option>
+                                            <option selected={item.category === "Electronics" ? true : false} value="Eletronics">Eletronics</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                                    
+                            <Form.Field>
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control>
+                                    <Form.Input type='text' name='name' id='name' placeholder="name of item ..."
+                                        value={item.name} onChange={onChange} required/>
+                                </Form.Control>
+                            </Form.Field>
+                            <Form.Field>
+                                <Form.Label>Price</Form.Label>
+                                <Form.Control>
+                                    <Form.Input type='number' name='price' id='price' placeholder="price of item in
+                                            naira..." value={item.price} onChange={onChange} required/>
+                                </Form.Control>
+                            </Form.Field>
+                            <Form.Field>
+                                <Form.Label>In Stock</Form.Label>
+                                <Form.Control>
+                                    <Form.Input type='number' name='in_stock' id='in_stock' placeholder="how many in
+                                        stock" value={item.in_stock} onChange={onChange} required/>
+                                </Form.Control>
+                            </Form.Field>
+                        </div>
+
+                        <button className="button is-small is-success" onClick={onSubmit}>
+                            <span>Submit</span>
+                            <span className="icon is-small">
+                                <i className="fas fa-check"></i>
+                            </span>
+                        </button>
+
+                        <button className="button is-small is-danger is-outlined" onClick={onCancel}>
+                            <span>Cancel</span>
+                            <span className="icon is-small">
+                                <i className="fas fa-times"></i>
+                            </span>
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
         </div>
     );
 

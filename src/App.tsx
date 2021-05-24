@@ -89,12 +89,13 @@ const App: React.FC = () => {
 
   // const [items] = useState(testItems); //declare useState for items state and set initial
 
+  
   if (combinedState.onEditItem && combinedState.itemToEdit !== null){
     return (
       <div>
         <ul>
           <li>
-            <button onClick={()=>{setCombinedState({...combinedState, onAddItem: true, onEditItem: false})}}>+ Add Item</button>
+            <button className="button is-info" onClick={()=>{setCombinedState({...combinedState, onAddItem: true, onEditItem: false})}}>+ Add Item</button>
           </li>
         </ul>
         <div>
@@ -117,7 +118,7 @@ const App: React.FC = () => {
           <div>
             <ul>
               <li>
-                <button onClick = {() => {setCombinedState({...combinedState, onAddItem: true, onEditItem: false})}}>+ Add Item</button>
+                <button className="button is-info" onClick = {() => {setCombinedState({...combinedState, onAddItem: true, onEditItem: false})}}>+ Add Item</button>
               </li>
             </ul>
             <ItemList items = {combinedState.items} handleDeleteItem={handleDeleteItem} handleEditItem={handleEditItem}/>

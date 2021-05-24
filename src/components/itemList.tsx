@@ -20,8 +20,8 @@ const ItemList: React.FC<Props> = (props) => {
 
     return (
         <div>
-            <table>
-                <caption>Inventory Items</caption>
+            <table  className="table is-fullwidth">
+                <caption className="title is-3">Inventory Items</caption>
                 <ItemListHeader />
                 {itemListRows}
             </table>
